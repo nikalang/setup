@@ -1,5 +1,4 @@
 #!/bin/sh
-# curl -s https://raw.githubusercontent.com/nikalang/setup/master/setup | sh
 echo \
 "
  .-----------------. .----------------.  .----------------.  .----------------. 
@@ -21,7 +20,22 @@ fi
 
 export NIKA_HOME="$NIKA_HOME"
 
-git clone git@github.com:nikalang/util.git "$NIKA_HOME/repository/util"
-git clone git@github.com:nikalang/bin.git  "$NIKA_HOME/repository/bin"
+mkdir -p "$NIKA_HOME/local"
 
-export PATH="$NIKA_HOME/repository/bin:$PATH"
+git clone https://github.com/nikalang/util.git "$NIKA_HOME/util"
+git clone https://github.com/nikalang/bin.git  "$NIKA_HOME/bin"
+
+export PATH="$NIKA_HOME/bin:$PATH"
+
+echo \
+"
+export NIKA_HOME=\"$NIKA_HOME\"
+export PATH=\"\$NIKA_HOME/bin:\$PATH\"
+" >> "$HOME/.profile"
+
+echo \
+"
+Type the following to start using Nika CLI (or restart the shell):
+
+  . ~/.profile
+"
