@@ -14,3 +14,14 @@ echo \
 | '--------------' || '--------------' || '--------------' || '--------------' |
  '----------------'  '----------------'  '----------------'  '----------------' 
 "
+
+if [ -z "$NIKA_HOME" ]; then
+    NIKA_HOME="$HOME/.nika"
+fi
+
+export NIKA_HOME="$NIKA_HOME"
+
+git clone git@github.com:nikalang/util.git "$NIKA_HOME/repository/util"
+git clone git@github.com:nikalang/bin.git "$NIKA_HOME/repository/bin"
+
+export PATH="$NIKA_HOME/repository/bin:$PATH"
