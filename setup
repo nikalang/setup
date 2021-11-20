@@ -20,10 +20,16 @@ fi
 
 export NIKA_HOME="$NIKA_HOME"
 
+echo \
+"
+Setting up Nika project...
+"
+
 mkdir -p "$NIKA_HOME/local"
 
-git clone https://github.com/nikalang/util.git "$NIKA_HOME/util"
-git clone https://github.com/nikalang/bin.git  "$NIKA_HOME/bin"
+git clone -q https://github.com/nikalang/util.git  "$NIKA_HOME/util"
+git clone -q https://github.com/nikalang/bin.git   "$NIKA_HOME/bin"
+git clone -q https://github.com/nikalang/setup.git "$NIKA_HOME/setup"
 
 export PATH="$NIKA_HOME/bin:$PATH"
 
